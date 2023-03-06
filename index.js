@@ -11,6 +11,8 @@ const renderSneaker = sneaker => {
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
 
+    imgCard.className = 'shoe-img'
+
     sneakerCard.append(individualCard);
     individualCard.append(imgCard, nameCard);
     
