@@ -1,0 +1,36 @@
+
+/* CSS Styling */
+
+#sneaker-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: space-evenly;
+}
+
+#sneaker-card > div {
+    margin: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+    border: 6px black solid;
+    height: 450px;
+    width: 350px;
+    padding: 10px;
+}
+
+.shoe-img {
+    height: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: Impact, fantasy;
+    /* color: red; */
+}
+
