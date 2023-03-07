@@ -54,11 +54,16 @@ const renderSneaker = sneaker => {
         
     })
     
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        renderForm(e, sneaker)
+        // console.log(sneaker.id)
+        form.reset();
+    })
     
 }
 
-const form = document.getElementById('form');
-form.addEventListener('submit', (e) => renderForm(e))
 
 function renderReview(review, reviewDiv) {
     const p = document.createElement('p');
@@ -66,10 +71,26 @@ function renderReview(review, reviewDiv) {
     reviewDiv.append(p);
 }
 
-function renderForm(e) {
-    e.preventDefault();
+
+function renderForm(e, sneaker) {
     const reviewDiv = document.getElementById('review-div');
     const input = e.target["leave-review"].value;
-    renderReview(input, reviewDiv);
-    form.reset();
+    // debugger;
+    // renderReview(input, reviewDiv);
+    // console.log(sneaker.id);
+    fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            reviews: [...sneaker.reviews, input]
+        })
+    })
+    // debugger;
+    .then(resp => resp.json())
+    // .then(obj =>  renderReview(obj.reviews));
 }
+
+
