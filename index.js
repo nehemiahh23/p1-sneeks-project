@@ -7,8 +7,27 @@ const detailMaker = document.createElement("p")
 let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
+// Patchwork
+const reviewDiv = document.createElement('div');
+reviewDiv.id = "review-div"
+const formDiv = document.createElement("div")
+formDiv.id = "form-div"
+const form = document.createElement('form');
+form.id = "form"
+const formLabel = document.createElement("label")
+formLabel.htmlFor = "leave-review"
+const textInput = document.createElement("input")
+textInput.type = "text"
+textInput.name = "leave-review"
+textInput.placeholder = "Add your review here..."
+const submitButton = document.createElement("input")
+submitButton.type = "submit"
+submitButton.value = "Submit"
+form.append(formLabel, textInput, submitButton)
+formDiv.append(form)
 
-detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice)
+
+detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice, reviewDiv, formDiv)
 
 fetch('http://localhost:3000/sneakers')
     .then(resp => resp.json())
@@ -19,7 +38,6 @@ const renderSneaker = sneaker => {
     const individualCard = document.createElement('div');
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
-    const reviewDiv = document.getElementById('review-div');
     
 
 
@@ -72,7 +90,6 @@ const renderSneaker = sneaker => {
     })
 }
 
-const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     renderForm(e, currentSneaker)
