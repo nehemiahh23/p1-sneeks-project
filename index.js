@@ -33,7 +33,7 @@ const renderSneaker = sneaker => {
     individualCard.addEventListener("click", () => {
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
-            //Add shoe details
+            // Add shoe details
             detailImg.src = sneaker.image
             detailName.innerText = sneaker.name
             detailMaker.innerText = sneaker.maker
@@ -42,6 +42,11 @@ const renderSneaker = sneaker => {
                 const sizeOpt = document.createElement("option")
                 sizeOpt.innerText = size
                 sizeDD.append(sizeOpt)
+            })
+
+            // Add dropdown functionality
+            sizeDD.addEventListener("change", (e) => {
+                detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
             })
             
             // Add shoe reviews
