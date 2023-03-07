@@ -34,6 +34,20 @@ h1 {
     padding: 10px;
 }
 
+#detail-div {
+    margin: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+    border: 6px black solid;
+    height: 450px;
+    width: 350px;
+    padding: 10px;
+}
+
 .shoe-img {
     height: auto;
     width: 300px;
