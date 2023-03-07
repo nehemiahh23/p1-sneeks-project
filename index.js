@@ -38,7 +38,7 @@ const renderSneaker = sneaker => {
     const individualCard = document.createElement('div');
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
-    
+    individualCard.className = "six-sneakers"
 
 
 
@@ -58,6 +58,7 @@ const renderSneaker = sneaker => {
         currentSneaker = sneaker;
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
+            sneakerCard.append(detailCard)
             // Add shoe details
             detailImg.src = sneaker.image
             detailName.innerText = sneaker.name
