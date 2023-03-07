@@ -19,16 +19,15 @@ const renderSneaker = sneaker => {
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
     const reviewDiv = document.getElementById('review-div');
-
-
-
+    
+    
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
-
+    
     imgCard.className = 'shoe-img'
     // line below is just here to make the display work for now
     detailImg.className = 'shoe-img'
-
+    
     sneakerCard.append(individualCard);
     individualCard.append(imgCard, nameCard);
     
@@ -38,7 +37,7 @@ const renderSneaker = sneaker => {
             detailImg.src = sneaker.image
             detailName.innerText = sneaker.name
             detailMaker.innerText = sneaker.maker
-
+            
             while(reviewDiv.firstChild) {
                 reviewDiv.removeChild(reviewDiv.lastChild);
             }
@@ -52,11 +51,14 @@ const renderSneaker = sneaker => {
         else {
             detailCard.style.display = "none"
         }
-
+        
     })
-
+    
     
 }
+
+const form = document.getElementById('form');
+form.addEventListener('submit', (e) => renderForm(e))
 
 function renderReview(review, reviewDiv) {
     const p = document.createElement('p');
@@ -64,3 +66,10 @@ function renderReview(review, reviewDiv) {
     reviewDiv.append(p);
 }
 
+function renderForm(e) {
+    e.preventDefault();
+    const reviewDiv = document.getElementById('review-div');
+    const input = e.target["leave-review"].value;
+    renderReview(input, reviewDiv);
+    form.reset();
+}
