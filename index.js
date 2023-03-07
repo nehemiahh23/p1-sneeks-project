@@ -54,13 +54,6 @@ const renderSneaker = sneaker => {
         
     })
     
-    const form = document.getElementById('form');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        renderForm(e, sneaker)
-        // console.log(sneaker.id)
-        form.reset();
-    })
     
 }
 
@@ -71,25 +64,32 @@ function renderReview(review, reviewDiv) {
     reviewDiv.append(p);
 }
 
+const form = document.getElementById('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    renderForm(e)
+    // console.log(sneaker.id)
+    form.reset();
+})
 
-function renderForm(e, sneaker) {
+function renderForm(e) {
     const reviewDiv = document.getElementById('review-div');
     const input = e.target["leave-review"].value;
     // debugger;
-    // renderReview(input, reviewDiv);
+    renderReview(input, reviewDiv);
     // console.log(sneaker.id);
-    fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            reviews: [...sneaker.reviews, input]
-        })
-    })
-    // debugger;
-    .then(resp => resp.json())
+    // fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Accept": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         reviews: [...sneaker.reviews, input]
+    //     })
+    // })
+    // // debugger;
+    // .then(resp => resp.json())
     // .then(obj =>  renderReview(obj.reviews));
 }
 
