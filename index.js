@@ -7,6 +7,8 @@ const renderSneaker = sneaker => {
     const individualCard = document.createElement('div');
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
+    const detailCard = document.querySelector("#detail-div")
+
 
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
@@ -16,4 +18,12 @@ const renderSneaker = sneaker => {
     sneakerCard.append(individualCard);
     individualCard.append(imgCard, nameCard);
     
+    individualCard.addEventListener("click", () => {
+        if (detailCard.style.display === "none") {
+            detailCard.style.display = "block"
+        }
+        else {
+            detailCard.style.display = "none"
+        }
+    })
 }
