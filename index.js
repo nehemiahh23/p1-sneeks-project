@@ -4,6 +4,7 @@ detailCard.style.display = "none"
 const detailImg = document.createElement("img")
 const detailName = document.createElement("h1")
 const detailMaker = document.createElement("p")
+let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
 
@@ -20,17 +21,21 @@ const renderSneaker = sneaker => {
     const nameCard = document.createElement('h2');
     const reviewDiv = document.getElementById('review-div');
     
+
+
+
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
-    
+
     imgCard.className = 'shoe-img'
     // line below is just here to make the display work for now
     detailImg.className = 'shoe-img'
-    
+
     sneakerCard.append(individualCard);
     individualCard.append(imgCard, nameCard);
-    
+
     individualCard.addEventListener("click", () => {
+        currentSneaker = sneaker;
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
             // Add shoe details
@@ -63,14 +68,16 @@ const renderSneaker = sneaker => {
         else {
             detailCard.style.display = "none"
         }
-        
+
     })
-    
-    
 }
 
 const form = document.getElementById('form');
-form.addEventListener('submit', (e) => renderForm(e))
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    renderForm(e, currentSneaker)
+    form.reset();
+})
 
 function renderReview(review, reviewDiv) {
     const p = document.createElement('p');
@@ -78,10 +85,23 @@ function renderReview(review, reviewDiv) {
     reviewDiv.append(p);
 }
 
-function renderForm(e) {
-    e.preventDefault();
+
+function renderForm(e, sneaker) {
     const reviewDiv = document.getElementById('review-div');
     const input = e.target["leave-review"].value;
-    renderReview(input, reviewDiv);
-    form.reset();
+
+    fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            reviews: [...sneaker.reviews, input]
+        })
+    })
+    .then(resp => resp.json())
+    .then(() =>  renderReview(input, reviewDiv));
 }
+
+
