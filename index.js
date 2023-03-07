@@ -4,10 +4,10 @@ detailCard.style.display = "none"
 const detailImg = document.createElement("img")
 const detailName = document.createElement("h1")
 const detailMaker = document.createElement("p")
-// const detailPrice = document.createElement("h2")
-// const sizeDD = document.createElement("select")
+const detailPrice = document.createElement("h3")
+const sizeDD = document.createElement("select")
 
-detailCard.append(detailImg, detailName, detailMaker)
+detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice)
 
 fetch('http://localhost:3000/sneakers')
     .then(resp => resp.json())
@@ -19,7 +19,6 @@ const renderSneaker = sneaker => {
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
     const reviewDiv = document.getElementById('review-div');
-    
     
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
@@ -34,10 +33,23 @@ const renderSneaker = sneaker => {
     individualCard.addEventListener("click", () => {
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
+            // Add shoe details
             detailImg.src = sneaker.image
             detailName.innerText = sneaker.name
             detailMaker.innerText = sneaker.maker
+            detailPrice.innerText = `$${sneaker.price[0].toFixed(2)}`
+            sneaker.size.forEach(size => {
+                const sizeOpt = document.createElement("option")
+                sizeOpt.innerText = size
+                sizeDD.append(sizeOpt)
+            })
+
+            // Add dropdown functionality
+            sizeDD.addEventListener("change", (e) => {
+                detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
+            })
             
+            // Add shoe reviews
             while(reviewDiv.firstChild) {
                 reviewDiv.removeChild(reviewDiv.lastChild);
             }
