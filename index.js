@@ -12,13 +12,9 @@ detailCard.append(detailImg, detailName, detailMaker)
 
 fetch('http://localhost:3000/sneakers')
     .then(resp => resp.json())
-    .then(sneakersArray => sneakersArray.forEach(sneakerObj => {
-        //console.log(sneakerObj)
-        renderSneaker(sneakerObj)
-    }))
+    .then(sneakersArray => sneakersArray.forEach(sneakerObj => renderSneaker(sneakerObj)))
 
 const renderSneaker = sneaker => {
-    // console.log(sneaker)
     const sneakerCard = document.getElementById('sneaker-card');
     const individualCard = document.createElement('div');
     const imgCard = document.createElement('img');
@@ -60,15 +56,12 @@ const renderSneaker = sneaker => {
         }
 
     })
-
-    
 }
 
 const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     renderForm(e, currentSneaker)
-    // console.log(sneaker.id)
     form.reset();
 })
 
@@ -80,12 +73,9 @@ function renderReview(review, reviewDiv) {
 
 
 function renderForm(e, sneaker) {
-    // console.log(sneaker)
     const reviewDiv = document.getElementById('review-div');
     const input = e.target["leave-review"].value;
-    // debugger;
-    // renderReview(input, reviewDiv);
-    // console.log(sneaker.id);
+
     fetch(`http://localhost:3000/sneakers/${sneaker.id}`, {
         method: "PATCH",
         headers: {
@@ -96,7 +86,6 @@ function renderForm(e, sneaker) {
             reviews: [...sneaker.reviews, input]
         })
     })
-    // debugger;
     .then(resp => resp.json())
     .then(() =>  renderReview(input, reviewDiv));
 }
