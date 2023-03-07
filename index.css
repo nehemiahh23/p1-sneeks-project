@@ -55,8 +55,27 @@ h1 {
     flex-direction: column;
 }
 
+/* #sneaker-card:nth-child(3) img {
+    height: 370px;
+} */
+
 h2 {
     font-family: Impact, fantasy;
-    /* color: red; */
 }
+
+#review-div {
+    border-top: 1px solid black;
+}
+
+#review-div > p {
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
 
