@@ -1,7 +1,7 @@
 {
     "sneakers": [
         {
-            "id": 1
+            "id": 1,
             "image": "http://cdn.shopify.com/s/files/1/0612/4768/4770/products/NEWPANDA.jpg?v=1664035345",
             "name": "Dunk Low Retro - Panda",
             "maker": "Nike",
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "id": 2
+            "id": 2,
             "image": "https://i.ebayimg.com/images/g/5nkAAOSwiKNjqKkm/s-l1600.jpg",
             "name": "Jordan 1 Retro - Chicago 2015",
             "maker": "Nike",
@@ -110,8 +110,8 @@
             ]
         },
         {
-            "id": 3
-            "image": "https://cdn-images.farfetch-contents.com/15/95/78/34/15957834_30925989_1000.jpg",
+            "id": 3,
+            "image": "https://cdn.shopify.com/s/files/1/0602/1896/6247/products/air-jordan-1-retro-high-white-university-blue-555088-134_2_mzxdpz_1800x1800_2473df50-7491-46b6-956b-31984072a6e3_1400x1100_crop_center@2x.jpg?v=1640229226",
             "name": "Jordan 1 Retro - University Blue",
             "maker": "Nike",
             "size": [
@@ -165,7 +165,7 @@
             ]
         },
         {
-            "id": 4
+            "id": 4,
             "image": "https://cdn.flightclub.com/1250/TEMPLATE/800389/1.jpg",
             "name": "Yeezy Boost 350 V2",
             "maker": "Adidas",
@@ -220,7 +220,7 @@
             ]
         },
         {
-            "id": 5
+            "id": 5,
             "image": "https://pkshoes.store/wp-content/uploads/2022/06/895934_03-1200x1200.jpg",
             "name": "Jordan 4 Retro - Military Black",
             "maker": "Nike",
@@ -275,7 +275,7 @@
             ]
         },
         {
-            "id": 6
+            "id": 6,
             "image": "https://cdn.shopify.com/s/files/1/0603/3031/1875/products/main-square_1bdfb3d1-b310-4b93-a3fc-3f1371bd8f35_540x.jpg?v=1662484524",
             "name": "Jordan 3 Retro - White Cement Reimagined",
             "maker": "Nike",

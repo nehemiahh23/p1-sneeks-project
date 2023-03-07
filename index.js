@@ -31,6 +31,8 @@ const renderSneaker = sneaker => {
     // line below is just here to make the display work for now
     detailImg.className = 'shoe-img'
 
+    imgCard.id = sneaker.id
+
     sneakerCard.append(individualCard);
     individualCard.append(imgCard, nameCard);
 
