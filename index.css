@@ -43,7 +43,7 @@ h1 {
     align-items: center;
     margin: 2px;
     border: 6px black solid;
-    height: 450px;
+    height: fit-content;
     width: 350px;
     padding: 10px;
 }
