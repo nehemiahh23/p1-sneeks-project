@@ -1,6 +1,18 @@
 
 /* CSS Styling */
 
+h1 {
+    text-align: center;
+}
+
+#cart {
+    width: 3%;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
 #sneaker-card {
     display: flex;
     flex-wrap: wrap;
