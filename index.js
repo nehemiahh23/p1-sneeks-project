@@ -3,7 +3,7 @@ detailCard.style.display = "none"
 
 const detailImg = document.createElement("img")
 const detailName = document.createElement("h1")
-const detailMaker = document.createElement("p")
+const detailMaker = document.createElement("h3")
 let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")

@@ -67,10 +67,6 @@ h1 {
     flex-direction: column;
 }
 
-/* #sneaker-card:nth-child(3) img {
-    height: 370px;
-} */
-
 h2 {
     font-family: Impact, fantasy;
 }
@@ -90,4 +86,15 @@ input[type=submit] {
     border-radius: 5px;
 }
 
+/* p {
+    font-family: Impact, fantasy;
+} */
 
+/* #deatail-div > p {
+    text-align: center;
+    font-weight: bold;
+}
+
+#deatail-div h1 {
+    font-family: Impact, fantasy;
+} */
