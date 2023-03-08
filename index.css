@@ -104,6 +104,10 @@ input[type=submit] {
     height: 25px;
 }
 
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
 input[type=text] {
     border-radius: 5px;
     width: 20em;
@@ -147,4 +151,31 @@ button#addToCart {
     letter-spacing: 1px;
     font-family: Impact, fantasy;
     margin-bottom: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#side-bar {
+    z-index: 2;
+    border: 2px solid black;
+    position: absolute;
+    width: 40%;
+    height: 100vh;
+    margin-left: 60%;
+    top: 70px;
+    /* font-weight: bold; */
+    font-size: 2rem;
+    padding: 4px;
+    font-family: Noto Sans, sans-serif;
+    background-color: white;
+}
+
+span:hover {
+    cursor: pointer;
+}
+
+#cart:hover {
+    cursor: pointer;
 }

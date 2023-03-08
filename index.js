@@ -43,6 +43,10 @@ const renderSneaker = sneaker => {
     individualCard.className = "six-sneakers"
     const individualArray = document.getElementsByClassName('six-sneakers')
     const cartItems = document.getElementById('cart-items');
+    const cartImg = document.getElementById('cart');
+    const sideBar = document.getElementById('side-bar');
+    const exit = document.getElementById('exit');
+    sideBar.style.display = 'none';
 
 
     imgCard.src = sneaker.image;
@@ -110,6 +114,18 @@ const renderSneaker = sneaker => {
             detailCard.style.display = "none"
         }
 
+    })
+
+    cartImg.addEventListener('click', () => {
+        if(sideBar.style.display === 'none') {
+            sideBar.style.display = 'block';
+        }
+    })
+
+    exit.addEventListener('click', () => {
+        if(sideBar.style.display === 'block'){
+            sideBar.style.display = 'none';
+        }
     })
 }
 
