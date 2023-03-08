@@ -47,13 +47,14 @@
 #detail-div {
     border: 6px black solid;
     background-color: white;
-    height: fit-content;
+    height: 90vh;
+    overflow: scroll;
     width: 950px;
     padding: 10px;
     z-index: 1;
 
     /* position: absolute; */
-    position: fixed;
+    position: fixed; 
     top: 20px;
 }
 
