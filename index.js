@@ -8,6 +8,7 @@ let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
 const addToCart = document.createElement('button');
+addToCart.id = 'addToCart';
 // Patchwork
 const reviewDiv = document.createElement('div');
 reviewDiv.id = "review-div"
