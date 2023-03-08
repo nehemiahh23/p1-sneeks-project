@@ -42,11 +42,6 @@
     height: 450px;
     width: 350px;
     padding: 10px;
-    /* -webkit-filter: blur(7px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px); */
 }
 
 #detail-div {
@@ -57,7 +52,9 @@
     padding: 10px;
     z-index: 1;
 
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
+    top: 20px;
 }
 
 #detail-div h1 {
@@ -67,7 +64,6 @@
 }
 
 #detail-div img {
-    /* float: right; */
     margin: auto;
     width: 400px;
     height: auto; 
@@ -114,34 +110,8 @@ input[type=text] {
 }
 
 #review-div h3 {
-    /* font-family: Impact, fantasy; */
     font-size: 20px;
 }
-
-/* #sneaker-card > .six-sneakers:onclick {
-    -webkit-filter: blur(7px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px); 
-} */
-
-/* #detail-div::before {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    content: '';
-    height: 100vh;
-    width: 100vw;
-    -webkit-filter: blur(7px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px); 
-    /* background-color: aqua;
-    z-index: -1; 
-} */
 
 .blurr{
     -webkit-filter: blur(7px);
@@ -150,3 +120,4 @@ input[type=text] {
     -ms-filter: blur(15px);
     filter: blur(15px); 
 }
+
