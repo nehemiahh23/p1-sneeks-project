@@ -3,7 +3,7 @@ detailCard.style.display = "none"
 
 const detailImg = document.createElement("img")
 const detailName = document.createElement("h1")
-const detailMaker = document.createElement("p")
+const detailMaker = document.createElement("h2")
 let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
@@ -39,7 +39,7 @@ const renderSneaker = sneaker => {
     const imgCard = document.createElement('img');
     const nameCard = document.createElement('h2');
     individualCard.className = "six-sneakers"
-
+    const individualArray = document.getElementsByClassName('six-sneakers')
 
 
     imgCard.src = sneaker.image;
@@ -55,6 +55,10 @@ const renderSneaker = sneaker => {
     individualCard.append(imgCard, nameCard);
 
     individualCard.addEventListener("click", () => {
+        // individualCard.classList.toggle('blurr');
+        for(let i = 0; i < individualArray.length; i++) {
+            individualArray[i].classList.toggle('blurr');
+        }
         currentSneaker = sneaker;
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
