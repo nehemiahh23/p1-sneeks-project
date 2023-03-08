@@ -7,6 +7,7 @@ const detailMaker = document.createElement("h2")
 let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
+const addToCart = document.createElement('button');
 // Patchwork
 const reviewDiv = document.createElement('div');
 reviewDiv.id = "review-div"
@@ -27,7 +28,7 @@ form.append(formLabel, textInput, submitButton)
 formDiv.append(form)
 
 
-detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice, reviewDiv, formDiv)
+detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice, addToCart, reviewDiv, formDiv)
 
 fetch('http://localhost:3000/sneakers')
     .then(resp => resp.json())
@@ -40,6 +41,7 @@ const renderSneaker = sneaker => {
     const nameCard = document.createElement('h2');
     individualCard.className = "six-sneakers"
     const individualArray = document.getElementsByClassName('six-sneakers')
+    const cartItems = document.getElementById('cart-items');
 
 
     imgCard.src = sneaker.image;
@@ -68,6 +70,7 @@ const renderSneaker = sneaker => {
             detailName.innerText = sneaker.name
             detailMaker.innerText = sneaker.maker
             detailPrice.innerText = `$${sneaker.price[0].toFixed(2)}`
+            addToCart.textContent = 'Add To Cart';
             sneaker.size.forEach(size => {
                 const sizeOpt = document.createElement("option")
                 sizeOpt.innerText = size
@@ -77,6 +80,18 @@ const renderSneaker = sneaker => {
             // Add dropdown functionality
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
+            })
+
+            // Add to cart click event
+            addToCart.addEventListener('click', () => {
+                // console.log(cartItems.textContent);
+                if(cartItems.textContent) {
+                    cartItems.textContent = parseInt(++cartItems.textContent);
+                    // console.log(cartItems.textContent);
+                } else {
+                    cartItems.textContent = 1;
+                    // console.log(cartItems.textContent);
+                }
             })
             
             // Add shoe reviews
