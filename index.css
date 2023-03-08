@@ -55,10 +55,10 @@ h1 {
     position: absolute;
 }
 
-/* div#detail-div > h1 {
+#detail-div {
     font-family: Impact, fantasy;
     color: black;
-} */
+}
 
 .shoe-img {
     height: auto;
