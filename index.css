@@ -5,7 +5,7 @@
     z-index: 0;
 }
 
-h1 {
+#sneeks {
     text-align: center;
     font-family: Impact, fantasy;
     font-size: 50px;
@@ -55,9 +55,22 @@ h1 {
     position: absolute;
 }
 
-#detail-div {
+#detail-div h1 {
     font-family: Impact, fantasy;
     color: black;
+    text-align: center;
+}
+
+#detail-div img {
+    /* float: right; */
+    margin: auto;
+    width: 400px;
+    height: auto; 
+}
+
+#detail-div h2{
+    font-family: Impact, fantasy;
+    text-align: center;
 }
 
 .shoe-img {
@@ -84,17 +97,17 @@ input[type=submit] {
     background-color: black;
     color: white;
     border-radius: 5px;
+    margin-left: 10px;
+    height: 25px;
 }
 
-/* p {
-    font-family: Impact, fantasy;
-} */
-
-/* #deatail-div > p {
-    text-align: center;
-    font-weight: bold;
+input[type=text] {
+    border-radius: 5px;
+    width: 20em;
+    height: 1.5em;
 }
 
-#deatail-div h1 {
-    font-family: Impact, fantasy;
-} */
+#review-div h3 {
+    /* font-family: Impact, fantasy; */
+    font-size: 20px;
+}
