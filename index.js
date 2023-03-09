@@ -78,8 +78,8 @@ const renderSneaker = sneaker => {
         }
 
         currentSneaker = sneaker;
-        sideBarPriceGlobal = document.createElement('p');
-        sideBarSizeGlobal = document.createElement('p');
+        // sideBarPriceGlobal = document.createElement('p');
+        // sideBarSizeGlobal = document.createElement('p');
 
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
@@ -153,6 +153,8 @@ addToCart.addEventListener('click', () => {
     deleteBtn.textContent = 'Remove';
     sideBarText.textContent = currentSneaker.name;
     sideBarImg.src = currentSneaker.image;
+    sideBarPriceGlobal = document.createElement('p');
+    sideBarSizeGlobal = document.createElement('p');
     if(sideBarPrice || sideBarPrice) {
     sideBarDiv.append(sideBarText, sideBarSize, sideBarPrice, sideBarImg, deleteBtn);
     } else {
