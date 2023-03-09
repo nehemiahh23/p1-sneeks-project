@@ -7,6 +7,16 @@ const detailMaker = document.createElement("h2")
 let currentSneaker;
 const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
+const addToCart = document.createElement('button');
+addToCart.id = 'addToCart';
+const cartItems = document.getElementById('cart-items');
+
+// for side bar
+const sideBar = document.getElementById('side-bar');
+const exit = document.getElementById('exit');
+sideBar.style.display = 'none';
+let sideBarSize;
+
 // Patchwork
 const reviewDiv = document.createElement('div');
 reviewDiv.id = "review-div"
@@ -27,7 +37,7 @@ form.append(formLabel, textInput, submitButton)
 formDiv.append(form)
 
 
-detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice, reviewDiv, formDiv)
+detailCard.append(detailImg, detailName, detailMaker, sizeDD, detailPrice, addToCart, reviewDiv, formDiv)
 
 fetch('http://localhost:3000/sneakers')
     .then(resp => resp.json())
@@ -40,7 +50,7 @@ const renderSneaker = sneaker => {
     const nameCard = document.createElement('h2');
     individualCard.className = "six-sneakers"
     const individualArray = document.getElementsByClassName('six-sneakers')
-
+    const cartImg = document.getElementById('cart');
 
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
@@ -56,10 +66,12 @@ const renderSneaker = sneaker => {
 
     individualCard.addEventListener("click", () => {
         // individualCard.classList.toggle('blurr');
-        for(let i = 0; i < individualArray.length; i++) {
+        for (let i = 0; i < individualArray.length; i++) {
             individualArray[i].classList.toggle('blurr');
         }
+
         currentSneaker = sneaker;
+
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
             sneakerCard.append(detailCard)
@@ -68,6 +80,8 @@ const renderSneaker = sneaker => {
             detailName.innerText = sneaker.name
             detailMaker.innerText = sneaker.maker
             detailPrice.innerText = `$${sneaker.price[0].toFixed(2)}`
+            addToCart.textContent = 'Add To Cart';
+
             sneaker.size.forEach(size => {
                 const sizeOpt = document.createElement("option")
                 sizeOpt.innerText = size
@@ -77,10 +91,13 @@ const renderSneaker = sneaker => {
             // Add dropdown functionality
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
+                sideBarSize = document.createElement('p');
+                sideBarSize.textContent = e.target.value;
+                console.log(sideBarSize)
             })
-            
+
             // Add shoe reviews
-            while(reviewDiv.firstChild) {
+            while (reviewDiv.firstChild) {
                 reviewDiv.removeChild(reviewDiv.lastChild);
             }
             const h3 = document.createElement('h3');
@@ -95,7 +112,36 @@ const renderSneaker = sneaker => {
         }
 
     })
+
+
+    cartImg.addEventListener('click', () => {
+        if (sideBar.style.display === 'none') {
+            sideBar.style.display = 'block';
+        }
+    })
+
+    exit.addEventListener('click', () => {
+        if (sideBar.style.display === 'block') {
+            sideBar.style.display = 'none';
+        }
+    })
 }
+
+addToCart.addEventListener('click', () => {
+    // console.log(cartItems.textContent);
+    if (cartItems.textContent) {
+        cartItems.textContent = parseInt(++cartItems.textContent);
+        
+    } else {
+        cartItems.textContent = 1;
+    }
+    const sideBarText = document.createElement('h5');
+    const sideBarImg = document.createElement('img');
+    sideBarText.textContent = currentSneaker.name;
+    sideBarImg.src = currentSneaker.image;
+    sideBar.append(sideBarText, sideBarSize, sideBarImg);
+})
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -124,8 +170,8 @@ function renderForm(e, sneaker) {
             reviews: [...sneaker.reviews, input]
         })
     })
-    .then(resp => resp.json())
-    .then(() =>  renderReview(input, reviewDiv));
+        .then(resp => resp.json())
+        .then(() => renderReview(input, reviewDiv));
 }
 
 
