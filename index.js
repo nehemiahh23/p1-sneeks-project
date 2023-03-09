@@ -126,14 +126,21 @@ const renderSneaker = sneaker => {
 
 addToCart.addEventListener('click', () => {
     // console.log(cartItems.textContent);
+    let sideBarSize = document.createElement('p');
     if(cartItems.textContent) {
         cartItems.textContent = parseInt(++cartItems.textContent);
-        const sideBarText = document.createElement('p');
-        sideBar.append(sideBarText);
-        sideBarText = 'bla'
+        sizeDD.addEventListener('change', (e) => {
+            sideBarSize.textContent = e.target.value;
+            console.log(e.target.value)
+        })
     } else {
         cartItems.textContent = 1;
     }
+    const sideBarText = document.createElement('p');
+    const sideBarImg = document.createElement('img');
+    sideBarText.textContent = currentSneaker.name;
+    sideBarImg.src = currentSneaker.image;
+    sideBar.append(sideBarText, sideBarSize, sideBarImg);
 })
 
 
