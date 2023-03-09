@@ -221,3 +221,8 @@ span:hover {
     backdrop-filter: blur(15px);
     z-index: 1;
 }
+
+#subtotal {
+    position:absolute;
+    right: 0;
+}
