@@ -17,8 +17,10 @@ const exit = document.getElementById('exit');
 sideBar.style.display = 'none';
 let sideBarSize;
 let sideBarPrice;
-let sideBarPriceGlobal = document.createElement('p');
-let sideBarSizeGlobal = document.createElement('p');
+let sideBarPriceGlobal;
+let sideBarSizeGlobal;
+// let sideBarPriceGlobal = document.createElement('p');
+// let sideBarSizeGlobal = document.createElement('p');
 // sideBarPriceGlobal.textContent= currentSneaker.price[0];
 // sideBarSize.textContent = currentSneaker.size[0];
 
@@ -76,7 +78,8 @@ const renderSneaker = sneaker => {
         }
 
         currentSneaker = sneaker;
-    
+        // sideBarPriceGlobal = document.createElement('p');
+        // sideBarSizeGlobal = document.createElement('p');
 
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
@@ -142,17 +145,27 @@ addToCart.addEventListener('click', () => {
     } else {
         cartItems.textContent = 1;
     }
+    const sideBarDiv = document.createElement('div');
+    sideBar.append(sideBarDiv);
     const sideBarText = document.createElement('h5');
     const sideBarImg = document.createElement('img');
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Remove';
     sideBarText.textContent = currentSneaker.name;
     sideBarImg.src = currentSneaker.image;
+    sideBarPriceGlobal = document.createElement('p');
+    sideBarSizeGlobal = document.createElement('p');
     if(sideBarPrice || sideBarPrice) {
-    sideBar.append(sideBarText, sideBarSize, sideBarPrice, sideBarImg);
+    sideBarDiv.append(sideBarText, sideBarSize, sideBarPrice, sideBarImg, deleteBtn);
     } else {
     sideBarPriceGlobal.textContent= `$${currentSneaker.price[0].toFixed(2)}`;
     sideBarSizeGlobal.textContent = currentSneaker.size[0];
-    sideBar.append(sideBarText, sideBarSizeGlobal, sideBarPriceGlobal, sideBarImg);
+    sideBarDiv.append(sideBarText, sideBarSizeGlobal, sideBarPriceGlobal, sideBarImg, deleteBtn);
     }
+
+    deleteBtn.addEventListener('click', () => {
+        sideBarDiv.remove();
+    })
 })
 
 
