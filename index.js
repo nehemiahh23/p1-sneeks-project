@@ -12,6 +12,8 @@ const sizeDD = document.createElement("select")
 const addToCart = document.createElement('button');
 addToCart.id = 'addToCart';
 const cartItems = document.getElementById('cart-items');
+const subtotal = document.querySelector("#subtotal")
+let total = 0
 
 // for side bar
 const sideBar = document.getElementById('side-bar');
@@ -150,13 +152,14 @@ const renderSneaker = sneaker => {
 }
 
 addToCart.addEventListener('click', () => {
-    // console.log(cartItems.textContent);
+    // cart icon
     if (cartItems.textContent) {
         cartItems.textContent = parseInt(++cartItems.textContent);
         
     } else {
         cartItems.textContent = 1;
     }
+
     const sideBarDiv = document.createElement('div');
     sideBar.append(sideBarDiv);
     const sideBarText = document.createElement('h5');
@@ -167,17 +170,37 @@ addToCart.addEventListener('click', () => {
     sideBarImg.src = currentSneaker.image;
     sideBarPriceGlobal = document.createElement('p');
     sideBarSizeGlobal = document.createElement('p');
-    if(sideBarPrice || sideBarPrice) {
+    let newAmt
+    if(sideBarPrice) {
+    newAmt = parseInt(sideBarPrice.textContent.replace("$", ""))
+    total += newAmt
     sideBarDiv.append(sideBarText, sideBarSize, sideBarPrice, sideBarImg, deleteBtn);
     } else {
     sideBarPriceGlobal.textContent= `$${currentSneaker.price[0].toFixed(2)}`;
     sideBarSizeGlobal.textContent = currentSneaker.size[0];
+    newAmt = parseInt(sideBarPriceGlobal.textContent.replace("$", ""))
+    total += newAmt
     sideBarDiv.append(sideBarText, sideBarSizeGlobal, sideBarPriceGlobal, sideBarImg, deleteBtn);
     }
 
     deleteBtn.addEventListener('click', () => {
+        if (cartItems.textContent === "1") {
+            cartItems.textContent = ""
+        }
+        else if (cartItems.textContent) {
+            cartItems.textContent = parseInt(--cartItems.textContent)
+        }
+        total -= newAmt
+        if (!total) {
+            subtotal.textContent = "";
+        }
+        else {
+            subtotal.textContent = `Subtotal: $${total.toFixed(2)}`
+        }
         sideBarDiv.remove();
     })
+
+    subtotal.textContent = `Subtotal: $${total.toFixed(2)}`
 })
 
 
