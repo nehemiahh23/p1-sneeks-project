@@ -197,3 +197,11 @@ span:hover {
     margin: 2%;
     font-size: 17px;
 }
+
+#side-bar button {
+    color: red;
+    background-color: black;
+    border-radius: 5px;
+    width: 7em;
+    font-size: 1rem;
+}
