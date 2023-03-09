@@ -18,6 +18,13 @@ const sideBar = document.getElementById('side-bar');
 const exit = document.getElementById('exit');
 sideBar.style.display = 'none';
 let sideBarSize;
+let sideBarPrice;
+let sideBarPriceGlobal;
+let sideBarSizeGlobal;
+// let sideBarPriceGlobal = document.createElement('p');
+// let sideBarSizeGlobal = document.createElement('p');
+// sideBarPriceGlobal.textContent= currentSneaker.price[0];
+// sideBarSize.textContent = currentSneaker.size[0];
 
 // Patchwork
 const reviewDiv = document.createElement('div');
@@ -73,6 +80,8 @@ const renderSneaker = sneaker => {
         // }
 
         currentSneaker = sneaker;
+        // sideBarPriceGlobal = document.createElement('p');
+        // sideBarSizeGlobal = document.createElement('p');
 
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
@@ -101,8 +110,9 @@ const renderSneaker = sneaker => {
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
                 sideBarSize = document.createElement('p');
+                sideBarPrice = document.createElement('p');
                 sideBarSize.textContent = e.target.value;
-                console.log(sideBarSize)
+                sideBarPrice.textContent = `$${currentSneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`;
             })
 
             // Add shoe reviews
@@ -144,11 +154,27 @@ addToCart.addEventListener('click', () => {
     } else {
         cartItems.textContent = 1;
     }
+    const sideBarDiv = document.createElement('div');
+    sideBar.append(sideBarDiv);
     const sideBarText = document.createElement('h5');
     const sideBarImg = document.createElement('img');
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Remove';
     sideBarText.textContent = currentSneaker.name;
     sideBarImg.src = currentSneaker.image;
-    sideBar.append(sideBarText, sideBarSize, sideBarImg);
+    sideBarPriceGlobal = document.createElement('p');
+    sideBarSizeGlobal = document.createElement('p');
+    if(sideBarPrice || sideBarPrice) {
+    sideBarDiv.append(sideBarText, sideBarSize, sideBarPrice, sideBarImg, deleteBtn);
+    } else {
+    sideBarPriceGlobal.textContent= `$${currentSneaker.price[0].toFixed(2)}`;
+    sideBarSizeGlobal.textContent = currentSneaker.size[0];
+    sideBarDiv.append(sideBarText, sideBarSizeGlobal, sideBarPriceGlobal, sideBarImg, deleteBtn);
+    }
+
+    deleteBtn.addEventListener('click', () => {
+        sideBarDiv.remove();
+    })
 })
 
 
