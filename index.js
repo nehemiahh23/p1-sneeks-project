@@ -16,7 +16,8 @@ const cartItems = document.getElementById('cart-items');
 // for side bar
 const sideBar = document.getElementById('side-bar');
 const exit = document.getElementById('exit');
-sideBar.style.display = 'none';
+// sideBar.style.display = 'none';
+let isSideBarOpen = false;
 let sideBarSize;
 let sideBarPrice;
 let sideBarPriceGlobal;
@@ -134,14 +135,16 @@ const renderSneaker = sneaker => {
 
 
     cartImg.addEventListener('click', () => {
-        if (sideBar.style.display === 'none') {
-            sideBar.style.display = 'block';
+        if (isSideBarOpen === false) {
+            sideBar.style.right = '0%';
+            isSideBarOpen = true;
         }
     })
 
     exit.addEventListener('click', () => {
-        if (sideBar.style.display === 'block') {
-            sideBar.style.display = 'none';
+        if (isSideBarOpen === true) {
+            sideBar.style.right = '-50%';
+            isSideBarOpen = false;
         }
     })
 }
