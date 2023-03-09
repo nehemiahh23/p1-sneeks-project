@@ -179,3 +179,8 @@ span:hover {
 #cart:hover {
     cursor: pointer;
 }
+
+#side-bar h4 {
+    margin: 2%;
+    font-size: 2.5eem;
+}

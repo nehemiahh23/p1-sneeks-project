@@ -9,6 +9,13 @@ const detailPrice = document.createElement("h3")
 const sizeDD = document.createElement("select")
 const addToCart = document.createElement('button');
 addToCart.id = 'addToCart';
+const cartItems = document.getElementById('cart-items');
+
+// for side bar
+const sideBar = document.getElementById('side-bar');
+const exit = document.getElementById('exit');
+sideBar.style.display = 'none';
+
 // Patchwork
 const reviewDiv = document.createElement('div');
 reviewDiv.id = "review-div"
@@ -42,12 +49,7 @@ const renderSneaker = sneaker => {
     const nameCard = document.createElement('h2');
     individualCard.className = "six-sneakers"
     const individualArray = document.getElementsByClassName('six-sneakers')
-    const cartItems = document.getElementById('cart-items');
     const cartImg = document.getElementById('cart');
-    const sideBar = document.getElementById('side-bar');
-    const exit = document.getElementById('exit');
-    sideBar.style.display = 'none';
-
 
     imgCard.src = sneaker.image;
     nameCard.textContent = sneaker.name;
@@ -66,7 +68,9 @@ const renderSneaker = sneaker => {
         for(let i = 0; i < individualArray.length; i++) {
             individualArray[i].classList.toggle('blurr');
         }
+
         currentSneaker = sneaker;
+
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
             sneakerCard.append(detailCard)
@@ -76,6 +80,7 @@ const renderSneaker = sneaker => {
             detailMaker.innerText = sneaker.maker
             detailPrice.innerText = `$${sneaker.price[0].toFixed(2)}`
             addToCart.textContent = 'Add To Cart';
+
             sneaker.size.forEach(size => {
                 const sizeOpt = document.createElement("option")
                 sizeOpt.innerText = size
@@ -85,18 +90,6 @@ const renderSneaker = sneaker => {
             // Add dropdown functionality
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
-            })
-
-            // Add to cart click event
-            addToCart.addEventListener('click', () => {
-                // console.log(cartItems.textContent);
-                if(cartItems.textContent) {
-                    cartItems.textContent = parseInt(++cartItems.textContent);
-                    // console.log(cartItems.textContent);
-                } else {
-                    cartItems.textContent = 1;
-                    // console.log(cartItems.textContent);
-                }
             })
             
             // Add shoe reviews
@@ -116,6 +109,7 @@ const renderSneaker = sneaker => {
 
     })
 
+
     cartImg.addEventListener('click', () => {
         if(sideBar.style.display === 'none') {
             sideBar.style.display = 'block';
@@ -128,6 +122,20 @@ const renderSneaker = sneaker => {
         }
     })
 }
+
+
+addToCart.addEventListener('click', () => {
+    // console.log(cartItems.textContent);
+    if(cartItems.textContent) {
+        cartItems.textContent = parseInt(++cartItems.textContent);
+        const sideBarText = document.createElement('p');
+        sideBar.append(sideBarText);
+        sideBarText = 'bla'
+    } else {
+        cartItems.textContent = 1;
+    }
+})
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
