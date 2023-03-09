@@ -176,6 +176,10 @@ addToCart.addEventListener('click', () => {
     }
 
     deleteBtn.addEventListener('click', () => {
+        if (cartItems.textContent === "1")
+            cartItems.textContent = ""
+        else if (cartItems.textContent)
+            cartItems.textContent = parseInt(--cartItems.textContent)
         sideBarDiv.remove();
     })
 })
