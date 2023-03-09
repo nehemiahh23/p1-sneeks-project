@@ -65,7 +65,7 @@ const renderSneaker = sneaker => {
 
     individualCard.addEventListener("click", () => {
         // individualCard.classList.toggle('blurr');
-        for(let i = 0; i < individualArray.length; i++) {
+        for (let i = 0; i < individualArray.length; i++) {
             individualArray[i].classList.toggle('blurr');
         }
 
@@ -91,9 +91,9 @@ const renderSneaker = sneaker => {
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
             })
-            
+
             // Add shoe reviews
-            while(reviewDiv.firstChild) {
+            while (reviewDiv.firstChild) {
                 reviewDiv.removeChild(reviewDiv.lastChild);
             }
             const h3 = document.createElement('h3');
@@ -111,32 +111,34 @@ const renderSneaker = sneaker => {
 
 
     cartImg.addEventListener('click', () => {
-        if(sideBar.style.display === 'none') {
+        if (sideBar.style.display === 'none') {
             sideBar.style.display = 'block';
         }
     })
 
     exit.addEventListener('click', () => {
-        if(sideBar.style.display === 'block'){
+        if (sideBar.style.display === 'block') {
             sideBar.style.display = 'none';
         }
     })
 }
 
+// To add the size of the shoe to the cart
+let sideBarSize = document.createElement('p');
+    sizeDD.addEventListener('change', (e) => {
+        sideBarSize.textContent = e.target.value;
+        // console.log(e.target.value)
+    })
 
 addToCart.addEventListener('click', () => {
     // console.log(cartItems.textContent);
-    let sideBarSize = document.createElement('p');
-    if(cartItems.textContent) {
+    if (cartItems.textContent) {
         cartItems.textContent = parseInt(++cartItems.textContent);
-        sizeDD.addEventListener('change', (e) => {
-            sideBarSize.textContent = e.target.value;
-            console.log(e.target.value)
-        })
+
     } else {
         cartItems.textContent = 1;
     }
-    const sideBarText = document.createElement('p');
+    const sideBarText = document.createElement('h5');
     const sideBarImg = document.createElement('img');
     sideBarText.textContent = currentSneaker.name;
     sideBarImg.src = currentSneaker.image;
@@ -171,8 +173,8 @@ function renderForm(e, sneaker) {
             reviews: [...sneaker.reviews, input]
         })
     })
-    .then(resp => resp.json())
-    .then(() =>  renderReview(input, reviewDiv));
+        .then(resp => resp.json())
+        .then(() => renderReview(input, reviewDiv));
 }
 
 

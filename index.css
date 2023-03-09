@@ -182,7 +182,7 @@ span:hover {
     cursor: pointer;
 }
 
-#side-bar p {
+#side-bar h5 {
     margin: 2%;
     font-size: 20px;
 }
@@ -190,4 +190,9 @@ span:hover {
 #side-bar img {
     width: 200px;
 
+}
+
+#side-bar p {
+    margin: 2%;
+    font-size: 17px;
 }
