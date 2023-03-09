@@ -21,6 +21,7 @@
     position: absolute;
     top: 18px;
     right: 20px;
+    z-index: 2;
 }
 
 #sneaker-card {
