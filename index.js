@@ -15,6 +15,7 @@ const cartItems = document.getElementById('cart-items');
 const sideBar = document.getElementById('side-bar');
 const exit = document.getElementById('exit');
 sideBar.style.display = 'none';
+let sideBarSize;
 
 // Patchwork
 const reviewDiv = document.createElement('div');
@@ -90,6 +91,9 @@ const renderSneaker = sneaker => {
             // Add dropdown functionality
             sizeDD.addEventListener("change", (e) => {
                 detailPrice.innerText = `$${sneaker.price[sneaker.size.indexOf(e.target.value)].toFixed(2)}`
+                sideBarSize = document.createElement('p');
+                sideBarSize.textContent = e.target.value;
+                console.log(sideBarSize)
             })
 
             // Add shoe reviews
@@ -123,18 +127,11 @@ const renderSneaker = sneaker => {
     })
 }
 
-// To add the size of the shoe to the cart
-let sideBarSize = document.createElement('p');
-    sizeDD.addEventListener('change', (e) => {
-        sideBarSize.textContent = e.target.value;
-        // console.log(e.target.value)
-    })
-
 addToCart.addEventListener('click', () => {
     // console.log(cartItems.textContent);
     if (cartItems.textContent) {
         cartItems.textContent = parseInt(++cartItems.textContent);
-
+        
     } else {
         cartItems.textContent = 1;
     }
