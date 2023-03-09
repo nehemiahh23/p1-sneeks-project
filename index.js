@@ -1,5 +1,5 @@
 const detailCard = document.querySelector("#detail-div")
-const bgDiv = document.querySelector("#click-out")
+const bgDiv = document.querySelector(".click-out")
 detailCard.style.display = "none"
 bgDiv.style.display = "none"
 
