@@ -191,7 +191,12 @@ addToCart.addEventListener('click', () => {
             cartItems.textContent = parseInt(--cartItems.textContent)
         }
         total -= newAmt
-        subtotal.textContent = `Subtotal: $${total.toFixed(2)}`
+        if (!total) {
+            subtotal.textContent = "";
+        }
+        else {
+            subtotal.textContent = `Subtotal: $${total.toFixed(2)}`
+        }
         sideBarDiv.remove();
     })
 
