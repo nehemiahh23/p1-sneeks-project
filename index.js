@@ -1,5 +1,7 @@
 const detailCard = document.querySelector("#detail-div")
+const bgDiv = document.querySelector("#click-out")
 detailCard.style.display = "none"
+bgDiv.style.display = "none"
 
 const detailImg = document.createElement("img")
 const detailName = document.createElement("h1")
@@ -66,15 +68,22 @@ const renderSneaker = sneaker => {
 
     individualCard.addEventListener("click", () => {
         // individualCard.classList.toggle('blurr');
-        for (let i = 0; i < individualArray.length; i++) {
-            individualArray[i].classList.toggle('blurr');
-        }
+        // for (let i = 0; i < individualArray.length; i++) {
+        //     individualArray[i].classList.toggle('blurr');
+        // }
 
         currentSneaker = sneaker;
 
         if (detailCard.style.display === "none") {
             detailCard.style.display = "block"
             sneakerCard.append(detailCard)
+            bgDiv.style.display = "block"
+
+            // Add clickoff functionality
+            bgDiv.addEventListener("click", () => {
+                detailCard.style.display = "none"
+                bgDiv.style.display = "none"
+            })
             // Add shoe details
             detailImg.src = sneaker.image
             detailName.innerText = sneaker.name

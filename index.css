@@ -204,6 +204,7 @@ span:hover {
     display: block;
     width: 100vw;
     height: 100em;
-    /* background-color: #333; */
+    background-color: #999;
+    opacity: 0.33;
     z-index: 1;
 }
