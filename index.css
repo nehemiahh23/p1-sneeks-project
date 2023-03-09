@@ -19,7 +19,7 @@
     width: 3%;
     height: auto;
     position: absolute;
-    top: 15px;
+    top: 18px;
     right: 20px;
 }
 
@@ -47,13 +47,14 @@
 #detail-div {
     border: 6px black solid;
     background-color: white;
-    height: fit-content;
+    height: 90vh;
+    overflow: scroll;
     width: 950px;
     padding: 10px;
     z-index: 1;
 
     /* position: absolute; */
-    position: fixed;
+    position: fixed; 
     top: 20px;
 }
 
@@ -103,6 +104,10 @@ input[type=submit] {
     height: 25px;
 }
 
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
 input[type=text] {
     border-radius: 5px;
     width: 20em;
@@ -121,3 +126,73 @@ input[type=text] {
     filter: blur(15px); 
 }
 
+#cart-items {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    z-index: 1;
+    border: 2px solid red;
+    border-radius: 50%;
+    font-size: 13px;
+    background-color: red;
+    padding: 5px;
+    font-family: Impact, fantasy;
+}
+
+button#addToCart {
+    color: red;
+    border-radius: 5px;
+    background-color: black;
+    border-color: black;
+    margin-left: 38%;
+    width: 26%;
+    height: 6%;
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-family: Impact, fantasy;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#side-bar {
+    z-index: 2;
+    border: 6px solid black;
+    position: absolute;
+    width: 40%;
+    height: 100vh;
+    margin-left: 60%;
+    /* top: 70px; */
+    /* font-weight: bold; */
+    font-size: 2rem;
+    padding: 6px;
+    font-family: Noto Sans, sans-serif;
+    background-color: white;
+    overflow: scroll;
+}
+
+
+span:hover {
+    cursor: pointer;
+}
+
+#cart:hover {
+    cursor: pointer;
+}
+
+#side-bar h5 {
+    margin: 2%;
+    font-size: 20px;
+}
+
+#side-bar img {
+    width: 200px;
+
+}
+
+#side-bar p {
+    margin: 2%;
+    font-size: 17px;
+}
