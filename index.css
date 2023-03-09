@@ -69,6 +69,13 @@
     margin: auto;
     width: 400px;
     height: auto; 
+    transition: transform .2s;
+    cursor: zoom-in;
+}
+
+#detail-div img:hover {
+    transform: scale(1.5);
+    /* width: 450px; */
 }
 
 #detail-div h2{
