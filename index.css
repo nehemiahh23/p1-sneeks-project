@@ -165,7 +165,7 @@ button:hover {
     width: 40%;
     /* height: 100vh; */
     height: 29.7em;
-    margin-left: 60%;
+    /* margin-left: 60%; */
     /* top: 70px; */
     /* font-weight: bold; */
     font-size: 2rem;
@@ -173,6 +173,8 @@ button:hover {
     font-family: Noto Sans, sans-serif;
     background-color: white;
     overflow: scroll;
+    transition: right 1s;
+    right: -50%;
 }
 
 
