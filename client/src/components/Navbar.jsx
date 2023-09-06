@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <div>
-        <h1>Sneeks</h1>
+        <h1 id='sneeks'>Sneeks</h1>
     </div>
   )
 }

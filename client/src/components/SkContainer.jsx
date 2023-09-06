@@ -12,9 +12,9 @@ function SkContainer() {
   }, [])
 
   return (
-    <>
+    <div id='sk-cont'>
       { sks.map(sk => <SkCard key={sk.id} sk={sk}/>)}
-    </>
+    </div>
   )
 }
 
