@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import SkCard from './SkCard'
 
-function SkContainer() {
-
-  const [sks, setSks] = useState([])
+function SkContainer({ setSk, sks, setSks }) {
 
   useEffect(() => {
     fetch('http://localhost:3000/sneakers')
@@ -13,7 +11,7 @@ function SkContainer() {
 
   return (
     <div id='sk-cont'>
-      { sks.map(sk => <SkCard key={sk.id} sk={sk}/>)}
+      { sks.map(sk => <SkCard key={sk.id} sk={sk} setSk={setSk}/>)}
     </div>
   )
 }
