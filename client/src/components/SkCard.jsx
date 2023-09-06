@@ -1,8 +1,11 @@
 import React from 'react'
 
-function SkCard() {
+function SkCard({ sk }) {
   return (
-    <div>SkCard</div>
+    <div>
+      <img src={sk.image} alt={`${sk.maker} ${sk.name}`}></img>
+      <h2>{sk.name}</h2>
+    </div>
   )
 }
 
