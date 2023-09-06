@@ -1,8 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
 
 function Navbar() {
+
+    const [count, setCount] = useState(0)
+
   return (
-    <div>Navbar</div>
+    <div>
+        <h1>Sneeks</h1>
+    </div>
   )
 }
 
