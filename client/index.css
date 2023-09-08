@@ -1,0 +1,236 @@
+
+/* CSS Styling */
+
+* {
+    z-index: 0;
+}
+
+#sneeks {
+    text-align: center;
+    font-family: Impact, fantasy;
+    font-size: 50px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 3px;
+}
+
+#cart {
+    width: 3%;
+    height: auto;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 2;
+}
+
+#sk-cont {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: space-evenly;
+}
+
+#sk-cont > .sk-card {
+    margin: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+    border: 6px black solid;
+    height: 450px;
+    width: 350px;
+    padding: 10px;
+}
+
+#detail-div {
+    border: 6px black solid;
+    background-color: white;
+    height: 90vh;
+    overflow: scroll;
+    width: 950px;
+    padding: 10px;
+    z-index: 2;
+
+    /* position: absolute; */
+    position: fixed; 
+    top: 20px;
+}
+
+#detail-div h1 {
+    font-family: Impact, fantasy;
+    color: black;
+    text-align: center;
+}
+
+#detail-div img {
+    margin: auto;
+    width: 400px;
+    height: auto; 
+    transition: transform .2s;
+    cursor: zoom-in;
+}
+
+#detail-div img:hover {
+    transform: scale(1.5);
+    /* width: 450px; */
+}
+
+#detail-div h2{
+    font-family: Impact, fantasy;
+    text-align: center;
+}
+
+
+.sk-img {
+    height: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: Impact, fantasy;
+}
+
+#review-div {
+    border-top: 1px solid black;
+}
+
+#review-div > p {
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    height: 25px;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    width: 20em;
+    height: 1.5em;
+}
+
+#review-div h3 {
+    font-size: 20px;
+}
+
+.blurr{
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px); 
+}
+
+#cart-items {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    z-index: 2;
+    border: 2px solid red;
+    border-radius: 50%;
+    font-size: 13px;
+    background-color: red;
+    padding: 5px;
+    font-family: Impact, fantasy;
+}
+
+button#addToCart {
+    color: red;
+    border-radius: 5px;
+    background-color: black;
+    border-color: black;
+    margin-left: 38%;
+    width: 26%;
+    height: 6%;
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-family: Impact, fantasy;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#side-bar {
+    z-index: 3;
+    border: 6px solid black;
+    position: absolute;
+    width: 40%;
+    /* height: 100vh; */
+    height: 29.7em;
+    /* margin-left: 60%; */
+    /* top: 70px; */
+    /* font-weight: bold; */
+    font-size: 2rem;
+    padding: 6px;
+    font-family: Noto Sans, sans-serif;
+    background-color: white;
+    overflow: scroll;
+    transition: right 1s;
+    right: -50%;
+}
+
+
+span:hover {
+    cursor: pointer;
+}
+
+#cart:hover {
+    cursor: pointer;
+}
+
+#side-bar h5 {
+    margin: 2%;
+    font-size: 20px;
+}
+
+#side-bar img {
+    width: 200px;
+
+}
+
+#side-bar p {
+    margin: 2%;
+    font-size: 17px;
+}
+
+#side-bar button {
+    color: red;
+    background-color: black;
+    border-radius: 5px;
+    width: 7em;
+    font-size: 1rem;
+}
+
+.click-out {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100em;
+    fill: #999;
+    fill-opacity: 0.1;
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    justify-content: center;
+}
+
+#subtotal {
+    position:absolute;
+    right: 0;
+}
