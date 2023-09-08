@@ -25,3 +25,4 @@ export default App
 // add quantity option at add to cart
 // only allow review posting if item was purchased
 // use routing for detail div
+// create a makers table rather than having maker be an attr of each shoe
