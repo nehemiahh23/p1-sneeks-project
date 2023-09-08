@@ -217,16 +217,17 @@ span:hover {
 }
 
 .click-out {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    display: block;
     width: 100vw;
     height: 100em;
     fill: #999;
     fill-opacity: 0.1;
     backdrop-filter: blur(15px);
     z-index: 1;
+    justify-content: center;
 }
 
 #subtotal {

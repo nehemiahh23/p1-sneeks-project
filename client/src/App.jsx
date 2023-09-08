@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import SkContainer from './components/SkContainer'
 import Cart from './components/Cart'
-import Detail from './components/Detail'
+import DetailBg from './components/DetailBg'
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <SkContainer sks={sks} setSks={setSks} setSk={setSk}/>
       <Cart />
-      { sk ? <Detail sk={sk}/> : null}
+      { sk ? <DetailBg sk={sk} setSk={setSk}/> : null}
     </>
   )
 }
@@ -24,3 +24,4 @@ export default App
 // change size/price to a dict in db
 // add quantity option at add to cart
 // only allow review posting if item was purchased
+// use routing for detail div
