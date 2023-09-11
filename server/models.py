@@ -15,11 +15,11 @@ metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy()
 
-class Sneaker(db.model):
+class Sneaker(db.Model):
     __tablename__ = 'sneakers'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, nullable=False)
+    name = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=False)
     maker = db.Column(db.String, nullable=False)
 
@@ -34,10 +34,10 @@ class Sneaker(db.model):
             'name': self.name,
             'maker': self.maker,
             'image': self.image,
-            'prices': [price.to_dict for price in self.prices]
+            'prices': [price.to_dict() for price in self.prices]
         }
 
-class Price(db.model):
+class Price(db.Model):
     __tablename__ = 'prices'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -47,7 +47,7 @@ class Price(db.model):
     sneaker_id = db.Column(db.Integer, db.ForeignKey("sneakers.id"))
 
     def __repr__(self):
-        return f'<Price id={self.id} price={self.price} size={self.size} sneaker_id={self.sneaker_id}'
+        return f'<Price id={self.id} price={self.price} size={self.size} sneaker_id={self.sneaker_id}>'
 
     def to_dict(self):
         return {
