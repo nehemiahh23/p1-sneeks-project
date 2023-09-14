@@ -21,7 +21,6 @@ function App() {
 
 export default App
 
-// change size/price to a dict in db
 // add quantity option at add to cart
 // only allow review posting if item was purchased
 // use routing for detail div
