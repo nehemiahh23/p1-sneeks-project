@@ -1,20 +1,24 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar'
-import SkContainer from './components/SkContainer'
-import Cart from './components/Cart'
-import DetailBg from './components/DetailBg'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import Home from './components/Home'
+import Login from './components/Login'
+import Signup from './components/Signup'
 
 function App() {
 
   const [sks, setSks] = useState([])
   const [sk, setSk] = useState(null)
+  const navigate = useNavigate()
+
+
 
   return (
     <>
-      <Navbar />
-      <SkContainer sks={sks} setSks={setSks} setSk={setSk}/>
-      <Cart />
-      { sk ? <DetailBg sk={sk} setSk={setSk}/> : null}
+      <Routes>
+        <Route path='/' element={<Home sk={sk} setSk={setSk} sks={sks} setSks={setSks} navigate={navigate}/>}/>
+        <Route path='login' element={<Login navigate={navigate}/>}/>
+        <Route path='signup' element={<Signup navigate={navigate}/>}/>
+      </Routes>
     </>
   )
 }
