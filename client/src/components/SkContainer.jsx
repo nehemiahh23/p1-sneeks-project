@@ -4,7 +4,7 @@ import SkCard from './SkCard'
 function SkContainer({ setSk, sks, setSks }) {
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/sneakers')
+    fetch('https://sneeks-backend.azurewebsites.net/sneakers')
     .then(r => r.json())
     .then(data => setSks(data))
   }, [])
