@@ -6,15 +6,15 @@ function Signup({ navigate }) {
   const [match, setMatch] = useState(false)
   const [form, setForm] = useState({
     email: "",
-    user: "",
-    pass: "",
+    username: "",
+    password: "",
     confirm: ""
   })
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    if (form.pass !== form.confirm) {
+    if (form.password !== form.confirm) {
       setMatch(true)
     }
     else {
@@ -26,7 +26,7 @@ function Signup({ navigate }) {
   
   function handleChange(e) {
     setForm({...form, [e.target.name]: e.target.value})
-    if (e.target.name === "pass" || e.target.name === "confirm") {
+    if (e.target.name === "password" || e.target.name === "confirm") {
       setMatch(false)
     }
   }
@@ -36,10 +36,10 @@ function Signup({ navigate }) {
       <form onSubmit={handleSubmit}>
         <label htmlFor='email'>E-Mail:</label>
         <input name='email' id='email' type='email' value={form.email} onChange={handleChange} required></input><br/>
-        <label htmlFor='user'>Username:</label>
-        <input name='user' id='user' value={form.user} onChange={handleChange} minLength={5} required></input><br/>
-        <label htmlFor='pass'>Password:</label>
-        <input name='pass' id='pass' type='password' value={form.pass} onChange={handleChange} pattern='^(?=.{8,})(?=.*[0-9])(?=.*[@#$%^&+=]).*$' title='Must contain at least 8 characters with 1 number and special character' required></input>
+        <label htmlFor='username'>Username:</label>
+        <input name='username' id='username' value={form.username} onChange={handleChange} minLength={5} required></input><br/>
+        <label htmlFor='password'>Password:</label>
+        <input name='password' id='password' type='password' value={form.password} onChange={handleChange} pattern='^(?=.{8,})(?=.*[0-9])(?=.*[@#$%^&+=]).*$' title='Must contain at least 8 characters with 1 number and special character' required></input>
         { match ? <span> Passwords must match</span> : null}<br/>
         <label htmlFor='confirm'>Confirm Password:</label>
         <input name='confirm' id='confirm' type='password' value={form.confirm} onChange={handleChange} pattern='^(?=.{8,})(?=.*[0-9])(?=.*[@#$%^&+=]).*$' title='Must contain at least 8 characters with 1 number and special character' required></input><br/>
