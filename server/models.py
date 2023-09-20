@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
@@ -14,6 +15,30 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 
 db = SQLAlchemy()
+
+class User(db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, unique=True, nullable=False)
+    username = db.Column(db.String, unique=True, nullable=False)
+    password = db.Column(db.String, unique=True, nullable=False)
+    created_on = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
+    confirmed = db.Column(db.Boolean, nullable=False, server_default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True)
+
+    def __repr__(self):
+        return f"User {self.username}"
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'created_on': self.created_on,
+            'confirmed': self.confirmed,
+            'confirmed_on': self.confirmed_on
+        }
 
 class Sneaker(db.Model):
     __tablename__ = 'sneakers'
