@@ -24,7 +24,7 @@ class User(db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, unique=True, nullable=False)
     created_on = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
-    confirmed = db.Column(db.Boolean, nullable=False, server_default=False)
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
     confirmed_on = db.Column(db.DateTime, nullable=True)
 
     def __repr__(self):
