@@ -32,7 +32,26 @@ def create_user():
     db.session.add(user)
     db.session.commit()
     session["user_id"] = user.id
-    return f'{user} logged in successfully', 201
+    return f'{user} created successfully', 201
+
+@app.post('/login')
+def login_user():
+    json = request.json
+    user = User.query.where(User.email == json['email']).first()
+    if (user and bcrypt.check_password_hash(user.password, json['password'])):
+        session["user_id"] = user.id
+        return user.to_dict(), 201
+    else:
+        return {"message": "Invalid credentials"}
+
+@app.get('/check_session')
+def check_session():
+    user_id = session.get("user_id")
+    user = User.query.get(user_id)
+    if user:
+        return {"data": user.to_dict}, 200
+    else:
+        return {"message": "No user logged in."}, 401
 
 #region unnecessary fetches
 # @app.get('/sneakers/<int:id>')
