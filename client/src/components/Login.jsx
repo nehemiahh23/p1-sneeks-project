@@ -3,9 +3,10 @@ import Signup from './Signup'
 
 function Login({ navigate }) {
 
+  // NEXT TIME: add fetches to signup and login on frontend using routes in app.py, add navigation from login to signup and vice versa, validate uniqueness of usernames + emails on frontend (using route to check db for user + email matching input?)
+
   const [form, setForm] = useState({
     email: "",
-    username: "",
     password: ""
   })
 

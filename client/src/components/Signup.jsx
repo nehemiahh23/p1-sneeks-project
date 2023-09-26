@@ -19,6 +19,16 @@ function Signup({ navigate }) {
     }
     else {
       console.log("send confirm email")
+      fetch('http://127.0.0.1:5555/create_user', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accepts': 'application/json'
+          },
+          body: JSON.stringify(form)
+      })
+      .then(r => r.json)
+      .then(data => console.log(data))
     }
 
     
