@@ -3,6 +3,10 @@ import Login from './Login'
 
 function Signup({ navigate }) {
 
+  // add notes to page:
+  // email is not required, but if you choose to use it, you will be notified of updates to the site (or have some type of opt-in)
+  // passwords: explain process of encryption, encourage users to not use any of their real passwords regardless
+
   const [match, setMatch] = useState(false)
   const [form, setForm] = useState({
     email: "",
@@ -28,7 +32,7 @@ function Signup({ navigate }) {
           body: JSON.stringify(form)
       })
       .then(r => r.json)
-      .then(data => console.log(data))
+      .then(navigate('/'))
     }
 
     
