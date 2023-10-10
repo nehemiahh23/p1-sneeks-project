@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Signup from './Signup'
 
-function Login({ navigate }) {
+function Login({ navigate, user, setUser }) {
 
-  // NEXT TIME: add fetches to signup and login on frontend using routes in app.py, add navigation from login to signup and vice versa, validate uniqueness of usernames + emails on frontend (using route to check db for user + email matching input?)
+  // add navigation from login to signup and vice versa, validate uniqueness of usernames + emails on frontend (using route to check db for user + email matching input?)
 
   const [form, setForm] = useState({
     email: "",
@@ -21,8 +21,22 @@ function Login({ navigate }) {
           },
           body: JSON.stringify(form)
       })
-      .then(r => r.json)
-      .then(navigate('/'))
+      .then(r => {
+        if (r.ok) {
+          r.json()
+          .then(data => setUser(data))
+          .then(navigate('/'))
+        }
+        else {
+          r.json()
+          .then(data => alert(data.message))
+        }
+      })
+
+      setForm({
+        email: "",
+        password: ""
+      })
   }
 
   function handleChange(e) {
